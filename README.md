@@ -21,3 +21,4 @@ Une fois le projet prêt, il faut lancer la commande `quarto preview` **dans l'e
 - [Documentation de la cli - command line interface](https://quarto.org/docs/reference/)
 
 - `quarto preview`: Permet de lancer le projet en mode développement. Chaque mise à jour de code mettra à jour le navigateur.
+  > S'il ne se passe rien, il est possible qu'il y ait une erreur dans le Terminal

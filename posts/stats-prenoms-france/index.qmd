@@ -11,40 +11,47 @@ format:
 jupyter: python3
 ---
 
-<!-- ```{python}
+```{python}
 import pandas as pd
 import numpy as np
 import json
 from unidecode import unidecode
 
 df = pd.read_csv("DS_PRENOMS_data.csv", sep=";", dtype={'GEO': str})
+df_clean = df.copy()
+# df_clean["OBS_VALUE"].replace(',', '2', inplace=True, regex=True)
+df["OBS_VALUE"] = df["OBS_VALUE"].replace(',', '2', inplace=False, regex=True)
+df["OBS_VALUE"] = df["OBS_VALUE"].astype("int")
+df = df[df["YOB"] != "XXXX"]
+
 df_list_dpt = pd.read_csv("departments_regions_france_2016.csv", sep=",", dtype={'departmentCode': str, "regionCode": str})
 
 display(df) 
 display(df.dtypes)
-``` -->
+```
 
-# Interactive Scatter Plot
+# Évolution du nombre de naissances du prénom Abdel en France
 
 ```{python}
-import pandas as pd
 import plotly.express as px
 
-# Sample data
-df = pd.DataFrame({
-    "x": [1, 2, 3, 4, 5],
-    "y": [2, 1, 4, 3, 5],
-    "label": ["A", "B", "C", "D", "E"]
-})
+df_abdel = df[df["PRENOM"] == "ABDEL"]
+df_abdel.groupby(['YOB'], as_index=False).sum()
+df_abdel.drop(columns=["GEO_OBJECT", "TIME_PERIOD"])
+df_abdel.sort_values("YOB", inplace=True)
 
-fig = px.scatter(
-    df,
-    x="x",
-    y="y",
-    text="label",
-    title="Interactive Plotly Scatter Plot"
+display(df_abdel['YOB'].iloc[0])
+
+min_year = df_abdel['YOB'].iloc[0]
+max_year = df_abdel['YOB'].iloc[-1]
+
+fig = px.bar(
+    df_abdel, 
+    x="YOB",
+    y="OBS_VALUE",
+    title=f"Nombre de naissances du prénom Abdel de {min_year} à {max_year}",
+    labels={"YOB": "Année de naissance", "OBS_VALUE": "Nombre"}
 )
 
-fig.update_traces(textposition="top center")
 fig.show()
 ```

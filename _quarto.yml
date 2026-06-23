@@ -1,5 +1,9 @@
 project:
   type: website
+  render:
+    - "*.qmd"
+    - "!*.ipynb"
+    - "!*.md"
 
 website:
   description: "A blog built with Quarto"
