@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -e
+
+VENV="$PWD/venv"
+
+export QUARTO_PYTHON="$VENV/bin/python"
+
+
+trap 'echo "❌ Quarto failed. Commit aborted."' ERR
+
+echo "Running Quarto..."
+
+quarto render --to html
+
+
+echo "Staging generated files..."
+
+# Add generated outputs
+git add .
+
+
+echo "Done."

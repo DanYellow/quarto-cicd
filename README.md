@@ -20,5 +20,11 @@ Une fois le projet prêt, il faut lancer la commande `quarto preview` **dans l'e
 
 - [Documentation de la cli - command line interface](https://quarto.org/docs/reference/)
 
-- `quarto preview`: Permet de lancer le projet en mode développement. Chaque mise à jour de code mettra à jour le navigateur.
-  > S'il ne se passe rien, il est possible qu'il y ait une erreur dans le Terminal
+- `quarto preview`: Permet de lancer le projet en mode développement. Chaque mise à jour de code mettra à jour le navigateur
+    > S'il ne se passe rien, il est possible qu'il y ait une erreur dans le Terminal
+
+- `quarto render` : Compile le projet dans un langage/format spécifié
+
+## Déploiement
+
+Le site est déployé via GitHub Actions, et le site est compilé avant chaque commit, via `quarto render`. Pour effectuer la compilation automatique, il faut avoir le hook pre-commit. Faites soit un lien symbolique vers ./git/hooks ou copiez le fichier githooks/pre-commit.

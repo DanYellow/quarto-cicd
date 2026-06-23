@@ -9,12 +9,7 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
-      - name: Render Quarto Project
-        uses: quarto-dev/quarto-actions/render@v2
-        with:
-          to: html # If set, it will be equivalent to `quarto render --to html`
-          path: source-folder # By default, the current working dir is used i.e `quarto render .`
       - name: SSH credentials
         run: echo "${{secrets.SSH_KEY}}" > ~/deploy_key && chmod 400 ~/deploy_key
       - name: Move files
-        run: rsync -Pavz --include='_site/*' --exclude='*' -e "ssh -i ~/deploy_key -o StrictHostKeyChecking=no" ${{ github.workspace }}/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/www/test-quarto
+        run: rsync -Pavz -e "ssh -i ~/deploy_key -o StrictHostKeyChecking=no" ${{ github.workspace }}/_site/  ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/www/test-quarto

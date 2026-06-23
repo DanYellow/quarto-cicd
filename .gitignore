@@ -220,7 +220,7 @@ __marimo__/
 /.quarto/
 **/*.quarto_ipynb
 
-_site/**
+# _site/**
 _freeze/**
 
 # .DS_Store
