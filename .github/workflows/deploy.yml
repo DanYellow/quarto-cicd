@@ -1,5 +1,5 @@
-name: Deploy instructions' assets
-run-name: ${{ github.actor }} is uploading instructions' assets' latest version
+name: Quarto deployment
+run-name: ${{ github.actor }} updating the blog
 on:
   workflow_dispatch:
 
@@ -17,4 +17,4 @@ jobs:
       - name: SSH credentials
         run: echo "${{secrets.SSH_KEY}}" > ~/deploy_key && chmod 400 ~/deploy_key
       - name: Move files
-        run: rsync -Pavz --include='example.js' --include='consignes.js' --include='exemple-consignes.html' --include='consignes.css' --include='favicon.png' --exclude='*' -e "ssh -i ~/deploy_key -o StrictHostKeyChecking=no" ${{ github.workspace }}/ ${{ secrets.SSH_USER }}@${{ secrets.SERVER }}:~/www/cours-mmi
+        run: rsync -Pavz --include='_site/*' --exclude='*' -e "ssh -i ~/deploy_key -o StrictHostKeyChecking=no" ${{ github.workspace }}/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/www/test-quarto
