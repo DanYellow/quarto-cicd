@@ -1,6 +1,6 @@
 # Exemple projet quarto
 
-Voici un petit exemple de projet basé sur Quarto (architecture "blog") avec intégration continue permettant de mettre à jour le blog sur action d'un bouton dans l'onglet "Actions" du dépôt.
+Voici un petit exemple de projet basé sur Quarto (architecture "blog") avec intégration continue permettant de mettre à jour le blog sur action d'un bouton dans l'onglet "Actions" du dépôt. Le projet nécessite impérativement d'avoir installé Quarto.
 
 ## Processus de création
 
@@ -24,6 +24,8 @@ Une fois le projet prêt, il faut lancer la commande `quarto preview` **dans l'e
     > S'il ne se passe rien, il est possible qu'il y ait une erreur dans le Terminal
 
 - `quarto render` : Compile le projet dans un langage/format spécifié
+
+Avant de travailler sur le projet, il faut installer des dépendances, elles sont listées dans le fichier requirements.txt. On peut donc installer toutes les dépendances via : `pip install -r requirements.txt`.
 
 ## Déploiement
 
