@@ -7,6 +7,7 @@ project:
 
 website:
   description: "A blog built with Quarto"
+  open-graph: true
   site-url: https://your-website-url.example.com # you must change this appropriately for RSS feeds to work properly
   title: "Laboratoire Test Quarto"
   page-footer: |
@@ -36,5 +37,5 @@ format:
       - text: |
           <script src="/assets/nav.js"></script>
 
-
+lang: fr
 
