@@ -20,7 +20,7 @@ import numpy as np
 # df = pd.read_csv("DS_PRENOMS_data.csv", sep=";", dtype={'GEO': str})
 df = pd.read_csv("example-csv.csv", sep=",", dtype={'GEO': str})
 
-# df[df["PRENOM"].isin(["ABDEL", "MARIE", "LUCAS", "PAULINE", "MICHEL", "JULIEN", "MARION", "JEAN", "JULIE"])].reset_index(inplace=False, drop=True).to_csv("example-csv.csv")
+# df[df["PRENOM"].isin(["ABDEL", "MARIE", "LUCAS", "PAULINE", "MICHEL", "JULIEN", "MARION", "JEAN", "JULIE"])].reset_index(inplace=False, drop=True).to_csv("example-csv.csv", index=False)
 
 df["OBS_VALUE"] = df["OBS_VALUE"].str.replace(',', '')
 df["OBS_VALUE"] = df["OBS_VALUE"].astype("int")
@@ -41,8 +41,6 @@ df_abdel.groupby(['YOB'], as_index=False).sum()
 df_abdel.drop(columns=["GEO_OBJECT", "TIME_PERIOD"])
 df_abdel.sort_values("YOB", inplace=True)
 
-display(df_abdel['YOB'].iloc[0])
-
 min_year = df_abdel['YOB'].iloc[0]
 max_year = df_abdel['YOB'].iloc[-1]
 
@@ -56,3 +54,5 @@ fig = px.bar(
 
 fig.show()
 ```
+
+<a href="example-csv.csv" download>Télécharger les données</a>

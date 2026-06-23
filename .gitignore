@@ -225,5 +225,6 @@ _freeze/**
 
 # .DS_Store
 **/.DS_Store
+**/*.quarto_ipynb_1
 
 **/DS_PRENOMS_data.csv

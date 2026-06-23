@@ -4,16 +4,24 @@ project:
     - "*.qmd"
     - "!*.ipynb"
     - "!*.md"
-    - "!*.csv"
 
 website:
   description: "A blog built with Quarto"
   site-url: https://your-website-url.example.com # you must change this appropriately for RSS feeds to work properly
-  title: "lab-test-etis"
+  title: "Laboratoire Test Quarto"
+  page-footer: |
+    <div class="footer-logo-container">
+      <img src="/assets/crns.png" loading="lazy" alt="logo CRNS" class="footer-logo" />
+      <img src="/assets/cy.png" loading="lazy" alt="logo CRNS" class="footer-logo" />
+      <img src="/assets/ensea.png" loading="lazy" alt="logo CRNS" class="footer-logo" />
+    </div>
   navbar:
+    search: true
     right:
-      - posts.qmd
-      - about.qmd
+      - text: Blog
+        href: posts.qmd
+      - text: A propos
+        href: about.qmd
       - icon: github
         href: https://github.com/
       - icon: bluesky
@@ -27,7 +35,6 @@ format:
     include-in-header:
       - text: |
           <script src="/assets/nav.js"></script>
-
 
 
 

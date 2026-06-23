@@ -3,3 +3,14 @@
 body {
     background-color: aliceblue;
 }
+
+.footer-logo {
+    height: 30px;
+}
+
+.footer-logo-container p {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 0.5rem;
+}
