@@ -1,0 +1,50 @@
+---
+title: "Post With Code"
+author: "Harlow Malloc"
+date: "2026-06-09"
+categories: [news, code, analysis]
+# image: "image.jpg"
+
+format:
+  html:
+    code-fold: false
+jupyter: python3
+---
+
+<!-- ```{python}
+import pandas as pd
+import numpy as np
+import json
+from unidecode import unidecode
+
+df = pd.read_csv("DS_PRENOMS_data.csv", sep=";", dtype={'GEO': str})
+df_list_dpt = pd.read_csv("departments_regions_france_2016.csv", sep=",", dtype={'departmentCode': str, "regionCode": str})
+
+display(df) 
+display(df.dtypes)
+``` -->
+
+# Interactive Scatter Plot
+
+```{python}
+import pandas as pd
+import plotly.express as px
+
+# Sample data
+df = pd.DataFrame({
+    "x": [1, 2, 3, 4, 5],
+    "y": [2, 1, 4, 3, 5],
+    "label": ["A", "B", "C", "D", "E"]
+})
+
+fig = px.scatter(
+    df,
+    x="x",
+    y="y",
+    text="label",
+    title="Interactive Plotly Scatter Plot"
+)
+
+fig.update_traces(textposition="top center")
+fig.show()
+```

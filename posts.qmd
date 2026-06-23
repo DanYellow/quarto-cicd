@@ -1,0 +1,14 @@
+---
+title: "Laboratoire etis test ci/cd"
+listing:
+# Dossier où se trouvent les articles
+  contents: posts
+  feed: true
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: false
+---
