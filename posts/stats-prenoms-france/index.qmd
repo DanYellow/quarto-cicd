@@ -1,9 +1,9 @@
 ---
-title: "Post With Code"
-author: "Harlow Malloc"
-date: "2026-06-09"
+title: "Evolution des naissances en France"
+author: "MMI intern"
+date: "2026-06-23"
 categories: [news, code, analysis]
-# image: "image.jpg"
+image: "matane.jpg"
 
 format:
   html:
@@ -11,22 +11,23 @@ format:
 jupyter: python3
 ---
 
+Chaque année on choisit des prénoms.
+
 ```{python}
 import pandas as pd
 import numpy as np
-import json
-from unidecode import unidecode
 
-df = pd.read_csv("DS_PRENOMS_data.csv", sep=";", dtype={'GEO': str})
-df_clean = df.copy()
-# df_clean["OBS_VALUE"].replace(',', '2', inplace=True, regex=True)
-df["OBS_VALUE"] = df["OBS_VALUE"].replace(',', '2', inplace=False, regex=True)
+# df = pd.read_csv("DS_PRENOMS_data.csv", sep=";", dtype={'GEO': str})
+df = pd.read_csv("example-csv.csv", sep=",", dtype={'GEO': str})
+
+# df[df["PRENOM"].isin(["ABDEL", "MARIE", "LUCAS", "PAULINE", "MICHEL", "JULIEN", "MARION", "JEAN", "JULIE"])].reset_index(inplace=False, drop=True).to_csv("example-csv.csv")
+
+df["OBS_VALUE"] = df["OBS_VALUE"].str.replace(',', '')
 df["OBS_VALUE"] = df["OBS_VALUE"].astype("int")
 df = df[df["YOB"] != "XXXX"]
+df["PRENOM"] = df["PRENOM"].replace('_\\d+', '', regex=True)
 
-df_list_dpt = pd.read_csv("departments_regions_france_2016.csv", sep=",", dtype={'departmentCode': str, "regionCode": str})
-
-display(df) 
+display(df)
 display(df.dtypes)
 ```
 

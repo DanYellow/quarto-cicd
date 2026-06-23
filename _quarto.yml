@@ -4,6 +4,7 @@ project:
     - "*.qmd"
     - "!*.ipynb"
     - "!*.md"
+    - "!*.csv"
 
 website:
   description: "A blog built with Quarto"

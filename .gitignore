@@ -225,3 +225,5 @@ _freeze/**
 
 # .DS_Store
 **/.DS_Store
+
+**/DS_PRENOMS_data.csv
