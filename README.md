@@ -12,21 +12,23 @@ Une fois l'env crée, il est possible de l'activer via `source venv/bin/__nom-do
 
 A noter que si on souhaite utiliser d'autres dépendences Python, il faudra les installer via pip dans l'environnement virtuel. Par exemple `python3 -m pip install pandas numpy`.
 
+L'ensemble des dépendances du projet sont listées dans le fichier requirements.txt. On peut installer toutes les dépendances via : `pip install -r requirements.txt` (dans l'environnement virtuel).
+
 ## Développement
 
 Une fois le projet prêt, il faut lancer la commande `quarto preview` **dans l'environnement virtuel** de Python. Elle va lancer un serveur qui mettra à jour le navigateur après chaque changement.
 
-### Commandes :
+### Commandes
 
 - [Documentation de la cli - command line interface](https://quarto.org/docs/reference/)
 
 - `quarto preview`: Permet de lancer le projet en mode développement. Chaque mise à jour de code mettra à jour le navigateur
     > S'il ne se passe rien, il est possible qu'il y ait une erreur dans le Terminal
 
-- `quarto render` : Compile le projet dans un langage/format spécifié
+- `quarto render` : Compile le projet dans un langage/format spécifié (défault html)
 
-Avant de travailler sur le projet, il faut installer des dépendances, elles sont listées dans le fichier requirements.txt. On peut donc installer toutes les dépendances via : `pip install -r requirements.txt`.
+
 
 ## Déploiement
 
-Le site est déployé via GitHub Actions, et le site est compilé avant chaque commit, via `quarto render`. Pour effectuer la compilation automatique, il faut avoir le hook pre-commit. Faites soit un lien symbolique vers ./git/hooks ou copiez le fichier githooks/pre-commit.
+Le site est déployé via GitHub Actions et rsync, et le site est compilé avant chaque commit, via `quarto render`. Pour effectuer la compilation automatique, il faut avoir le hook pre-commit. Faites soit un lien symbolique vers ./git/hooks ou copiez le fichier githooks/pre-commit dans le dossier ./git/hooks.
